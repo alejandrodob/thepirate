@@ -9,9 +9,6 @@ gem 'pg'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
@@ -31,6 +28,9 @@ gem "factory_girl_rails", group: [:test, :development]
 
 # Guard
 gem "guard-rspec", group: [:test, :development]
+
+# Devise for authentication
+gem 'devise'
 
 
 # Use ActiveModel has_secure_password
