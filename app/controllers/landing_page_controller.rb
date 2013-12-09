@@ -3,7 +3,7 @@ class LandingPageController < ApplicationController
 
   def index
     if user_signed_in?
-      redirect_to current_user
+      redirect_to user_home_path(current_user)
     end
   end
   

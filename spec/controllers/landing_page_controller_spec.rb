@@ -15,7 +15,7 @@ describe LandingPageController do
         user = create :user
         sign_in user
         get :index, {}
-        expect(response).to redirect_to(user)
+        expect(response).to redirect_to(user_home_path(user))
       end
     end
   end
