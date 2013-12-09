@@ -2,6 +2,8 @@ Thepirate::Application.routes.draw do
 
   root 'landing_page#index'
 
+  resources :users, only: :show
+
   devise_for :users
 
 
