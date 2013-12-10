@@ -8,6 +8,7 @@ describe UserController do
   end
 
   describe "GET 'home'" do
+
     it "returns http success" do
       get 'home'
       expect(response).to be_success
@@ -18,10 +19,11 @@ describe UserController do
       expect(assigns(:user)).to eq(@user)
     end
 
-    it "redirects to user home page" do
+    it "renders the user home page view" do
       get :home, {id: @user.to_param}
       expect(response).to render_template("home")
     end
+
   end
 
   describe "GET 'profile'" do
