@@ -5,7 +5,7 @@ describe Friendship do
   describe "validations: " do
 
     it "has a valid factory" do
-      expect(build :friendship).to be_valid
+      expect(create :friendship).to be_valid
     end
 
     it "has a user" do
@@ -26,7 +26,6 @@ describe Friendship do
       expect(friendship1)
       expect(friendship2).not_to be_valid
     end
-
 
   end
 

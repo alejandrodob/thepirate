@@ -4,7 +4,7 @@ class Friendship < ActiveRecord::Base
 
   validates_presence_of :user
   validates_presence_of :friend
-  validate :unique?
+  validate :unique?, on: :create
 
 
   private
