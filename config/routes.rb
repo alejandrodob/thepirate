@@ -1,8 +1,9 @@
 Thepirate::Application.routes.draw do
 
-  get "user/home"
-  get "user/profile"
+  get 'user/home'
+  get 'user/profile'
   root 'landing_page#index'
+  resources :friendships
 
   devise_for :users
 
