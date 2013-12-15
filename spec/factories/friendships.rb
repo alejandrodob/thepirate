@@ -3,6 +3,6 @@
 FactoryGirl.define do
   factory :friendship do
     association :user
-    association :friend, factory: :user, nickname: "Almond", email: "b@b.b"
+    association :friend, factory: :user, username: "Almond", email: "b@b.b"
   end
 end
