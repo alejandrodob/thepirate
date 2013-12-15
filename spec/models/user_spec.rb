@@ -16,9 +16,22 @@ describe User do
     it "username is unique" do
       user = create(:user, username: 'mindy', email:'w@w.w')
       user2 = build(:user, username: 'mindy')
-
       expect(user2).not_to be_valid
     end
 
   end
+
+  describe "friends, friendships and requests for friendship" do
+
+    it "when sending a request to another user, the relationship appears as pending" do
+      requester = create :user
+      requested = create :user, username: 'hu', email: 't@r.com'
+      relation = requester.friendships.create(friend: requested)
+      expect(requester.pending_requests).to eq([relation])
+    end
+
+
+
+  end
+
 end

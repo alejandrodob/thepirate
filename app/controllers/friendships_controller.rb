@@ -13,6 +13,5 @@ class FriendshipsController < ApplicationController
   end
 
   def create
-    redirect_to current_user_path
   end
 end

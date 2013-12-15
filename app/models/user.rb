@@ -1,7 +1,12 @@
 class User < ActiveRecord::Base
 
-  has_many :friendships, dependent: :destroy
-  has_many :friends, through: :friendships
+  has_many :friendships, foreign_key: 'user_id', dependent: :destroy
+  has_many :requested_friends, through: :friendships, source: :friend
+  has_many :reverse_friendships,
+            foreign_key: 'friend_id',
+            class_name: 'Friendship',
+            dependent: :destroy
+  has_many  :requesting_friends, through: :reverse_friendships, source: :user
 
   validates_presence_of :username
   validates_uniqueness_of :username
