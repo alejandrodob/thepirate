@@ -20,8 +20,8 @@ describe Friendship do
     end
 
     it "is unique (a user is not friends with another more than once)" do
-      user = create :user
-      friend = create(:user, email: 'z@z.z')
+      user = build :user
+      friend = build(:user, email: 'z@z.z')
       friendship1 = create(:friendship, user: user, friend: friend)
       friendship2 = build(:friendship, user: user, friend: friend)
       expect(friendship1).to be_valid
@@ -41,15 +41,15 @@ describe Friendship do
     describe "pending_request?" do
 
       it "returns true if the friendship represents a pending request" do
-        user = create :user
-        friend = create(:user, email: 'z@z.z')
+        user = build :user
+        friend = build(:user, email: 'z@z.z')
         friendship = create(:friendship, user: user, friend: friend)
         expect(friendship.pending_request?).to be true
       end
 
       it "returns false if the request was accepted" do
-        user = create :user
-        friend = create(:user, email: 'z@z.z')
+        user = build :user
+        friend = build(:user, email: 'z@z.z')
         request = create(:friendship, user: user, friend: friend)
         accept = create(:friendship, user: friend, friend: user)
         expect(request.pending_request?).to be false
@@ -62,15 +62,15 @@ describe Friendship do
   describe "accepted?" do
 
     it "returns true if the a request was made and then accepted" do
-        user = create :user
-        friend = create(:user, email: 'z@z.z')
+        user = build :user
+        friend = build(:user, email: 'z@z.z')
         request = create(:friendship, user: user, friend: friend)
         accept = create(:friendship, user: friend, friend: user)
         expect(request.accepted?).to be true
     end
 
     it "returns false if the request has not been accepted yet" do
-      user = create :user
+      user = build :user
       friend = create(:user, email: 'z@z.z')
       request = create(:friendship, user: user, friend: friend)
       expect(request.accepted?).to be false

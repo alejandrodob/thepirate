@@ -15,12 +15,12 @@ describe UserController do
     end
 
     it "assigns the current user as @user" do
-      get :home, { id: @user.to_param }
+      get :home, {}
       expect(assigns(:user)).to eq(@user)
     end
 
     it "renders the user home page view" do
-      get :home, {id: @user.to_param}
+      get :home, {}
       expect(response).to render_template("home")
     end
 
