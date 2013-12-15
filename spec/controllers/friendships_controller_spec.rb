@@ -44,49 +44,36 @@ describe FriendshipsController do
 
   end
 
-  describe "GET #edit" do
-
-    xit "assigns the requested friendship as @friendship" do
-      get :edit, { id:friendship.to_param }, valid_session
-      expect(assigns(:friendship)).to eq(friendship)
-    end
-
-    xit "renders edit view" do
-      get :edit, { id:friendship.to_param }, valid_session
-      expect(response).to render_template("edit")
-    end
-
-  end
 
   describe "POST #create" do
 
-    describe "wxith valid attributes" do
+    describe "with valid attributes" do
 
-      xit "creates a new friendship" do
+      it "creates a new friendship" do
         expect {
-        post :create, { friendship: attributes_for(:friendship) }, valid_session
-        }.to change(Address, :count).by(1)
+        post :create, { friendship: attributes_for(:friendship) }
+        }.to change(Friendship, :count).by(1)
       end
 
       xit "saves newly created friendship and assings as @friendship" do
         post :create, { friendship: attributes_for(:friendship) }, valid_session
-        expect(assigns(:friendship)).to be_a(Address)
+        expect(assigns(:friendship)).to be_a(Friendship)
         expect(assigns(:friendship)).to be_persisted
       end
 
       xit "redirects to new friendship" do
         post :create, { friendship: attributes_for(:friendship) }, valid_session
-        expect(response).to redirect_to(Address.last)
+        expect(response).to redirect_to(Friendship.last)
       end
 
     end
 
-    describe "wxith invalid attributes" do
+    describe "with invalid attributes" do
 
       xit "should not create a new friendship" do
         expect {
         post :create, { friendship: { :street => nil } }, valid_session
-        }.not_to change(Address, :count)
+        }.not_to change(Friendship, :count)
       end
 
       xit "should render the new friendship template" do
@@ -100,7 +87,7 @@ describe FriendshipsController do
 
   describe "PUT #update" do
 
-    describe "wxith valid attributes" do
+    describe "with valid attributes" do
 
       xit "locates the requested friendship" do
         put :update,
@@ -125,7 +112,7 @@ describe FriendshipsController do
 
     end
 
-    describe "wxith invalid attributes" do
+    describe "with invalid attributes" do
 
       xit "locates the requested friendship" do
         put :update,

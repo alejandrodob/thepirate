@@ -11,4 +11,8 @@ class FriendshipsController < ApplicationController
   def show
     @friendship = current_user.friendships.find(params[:friendship_id] || params[:id])
   end
+
+  def create
+    redirect_to current_user_path
+  end
 end
