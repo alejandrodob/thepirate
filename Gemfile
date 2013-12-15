@@ -44,3 +44,6 @@ gem 'devise'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# pry
+gem "pry", group: [:test, :development]
