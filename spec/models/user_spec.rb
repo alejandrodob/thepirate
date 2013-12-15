@@ -23,14 +23,19 @@ describe User do
 
   describe "friends, friendships and requests for friendship" do
 
-    it "when sending a request to another user, the relationship appears as pending" do
+    it "when sending a request to another user, it appears as requested" do
       requester = create :user
       requested = create :user, username: 'hu', email: 't@r.com'
-      relation = requester.friendships.create(friend: requested)
-      expect(requester.pending_requests).to eq([relation])
+      requester.friendships.create(friend: requested)
+      expect(requester.requested_friends).to eq([requested])
     end
 
-
+    it "when being requested as friend by another user, it appears as requester" do
+      requester = create :user
+      requested = create :user, username: 'hu', email: 't@r.com'
+      requester.friendships.create(friend: requested)
+      expect(requested.requester_friends).to eq([requester])
+    end
 
   end
 

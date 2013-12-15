@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
             foreign_key: 'friend_id',
             class_name: 'Friendship',
             dependent: :destroy
-  has_many  :requesting_friends, through: :reverse_friendships, source: :user
+  has_many :requester_friends, through: :reverse_friendships, source: :user
 
   validates_presence_of :username
   validates_uniqueness_of :username
