@@ -13,4 +13,8 @@ class User < ActiveRecord::Base
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  def friends
+    self.requester_friends & self.requested_friends
+  end
 end
