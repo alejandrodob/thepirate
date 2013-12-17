@@ -32,6 +32,10 @@ gem "guard-rspec", group: [:test, :development]
 # Devise for authentication
 gem 'devise'
 
+# Simple form
+gem 'simple_form'
+
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

@@ -1,5 +1,5 @@
 <header>
   <h1>Home page for</h1>
   <%= link_to 'sign out', destroy_session_path(current_user), method: :delete %>
-  <p> <%= link_to @user.username, user_profile_path(current_user) %></p>
+  <p> <%= link_to current_user.username, user_profile_path(current_user) %></p>
 </header>
