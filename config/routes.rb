@@ -4,6 +4,7 @@ Thepirate::Application.routes.draw do
   get 'user/profile'
   root 'landing_page#index'
   resources :friendships
+  resources :events
 
   devise_for :users
 
