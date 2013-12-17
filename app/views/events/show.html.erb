@@ -1,0 +1,14 @@
+<%= render 'session_header' %>
+<h3>Event name: </h3>
+<%= @event.name %>
+
+<h3>Participants: </h3>
+  <ul>
+    <% @event.participants.each do |p| %>
+      <li><%= p.username %></li>
+    <% end %>
+  </ul>
+<h3>Created by: </h3>
+<%= @event.user.username %>
+
+<%= link_to 'Edit', edit_event_path(@event) %>

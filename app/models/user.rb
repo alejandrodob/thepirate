@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
-  has_many :owned_events, source: :events
+  has_many :events, inverse_of: :user
   has_many :participations
-  has_many :events, through: :participations
+  has_many :participating_events, through: :participations, source: :event
 
   has_many :friendships, foreign_key: 'user_id', dependent: :destroy
   has_many :requested_friends, through: :friendships, source: :friend
