@@ -5,7 +5,7 @@ Thepirate::Application.routes.draw do
   root 'landing_page#index'
   resources :friendships
   resources :events do
-    get 'session'
+    get 'to_session'
   end
 
   devise_for :users
