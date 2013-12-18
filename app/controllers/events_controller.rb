@@ -2,6 +2,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy, :to_session]
 
   def to_session
+    @event.add_active_user_to_session(current_user)
   end
 
   def index

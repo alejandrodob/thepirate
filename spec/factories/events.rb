@@ -3,6 +3,6 @@
 FactoryGirl.define do
   factory :event do
     name "MyString"
-    user nil
+    association :user
   end
 end

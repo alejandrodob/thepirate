@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :participation do
-    event nil
-    user nil
+    association :event
+    association :user
   end
 end
