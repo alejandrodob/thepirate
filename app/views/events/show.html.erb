@@ -4,8 +4,11 @@
 
 <h3>Participants: </h3>
   <ul>
+    <% active_users = @event.active_users %>
     <% @event.participants.each do |p| %>
-      <li><%= p == current_user ? 'You' : p.username %></li>
+      <li><%= p == current_user ? 'You' : p.username %>
+        (<%= active_users.include?(p) ? 'online' : 'offline' %>)
+      </li>
     <% end %>
   </ul>
 <h3>Created by: </h3>
