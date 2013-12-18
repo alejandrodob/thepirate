@@ -1,8 +1,14 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy, :to_session]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :to_session, :active_users]
 
   def to_session
     @event.add_active_user_to_session(current_user)
+  end
+
+  def active_users
+    respond_to do |format|
+      format.json { render json: @event.active_users_to_json }
+    end
   end
 
   def index

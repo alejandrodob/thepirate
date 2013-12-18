@@ -6,6 +6,7 @@ Thepirate::Application.routes.draw do
   resources :friendships
   resources :events do
     get 'to_session'
+    get 'to_session/active_users' => 'events#active_users'
   end
 
   devise_for :users

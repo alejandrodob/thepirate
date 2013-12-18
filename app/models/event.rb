@@ -12,4 +12,12 @@ class Event < ActiveRecord::Base
   def active_users
     participants.where(participations: { status: 'online' })
   end
+
+  def active_users_to_json
+    json = {active_users: []}
+    active_users.each do |u|
+      json[:active_users] << u.username
+    end
+    json
+  end
 end
