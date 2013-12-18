@@ -5,7 +5,7 @@
 <h3>Participants: </h3>
   <ul>
     <% @event.participants.each do |p| %>
-      <li><%= p.username %></li>
+      <li><%= p == current_user ? 'You' : p.username %></li>
     <% end %>
   </ul>
 <h3>Created by: </h3>
