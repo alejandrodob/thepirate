@@ -2,6 +2,7 @@ class Event < ActiveRecord::Base
   belongs_to :user, inverse_of: :events
   has_many :participations
   has_many :participants, through: :participations, source: :user
+  accepts_nested_attributes_for :participants
 
   def add_active_user_to_session(user)
     user_participation = participations.find_by(user_id: user, event_id: id)
