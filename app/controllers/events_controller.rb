@@ -56,9 +56,6 @@ class EventsController < ApplicationController
     end
   end
 
-  def session
-
-  end
 
 
   private
