@@ -10,6 +10,12 @@ class Event < ActiveRecord::Base
     user_participation.save
   end
 
+  def remove_active_user_from_session(user)
+    user_participation = participations.find_by(user_id: user, event_id: id)
+    user_participation.status = 'offline'
+    user_participation.save
+  end
+
   def active_users
     participants.where(participations: { status: 'online' })
   end
