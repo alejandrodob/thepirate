@@ -3,13 +3,13 @@
   Created by <%= event.user.username %> <br>
   Other participants:
   <ul>
-    <li>
-      <% event.participants.each do |p| %>
-        <% if p == current_user %> 
+    <% event.participants.each do |p| %>
+      <% if p != current_user %> 
+        <li>
           <%= p.username %><br>
-        <% end %>
+        </li>
       <% end %>
-      </li>
+    <% end %>
   </ul>
     
 </div>
