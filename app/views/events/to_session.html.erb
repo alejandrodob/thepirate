@@ -13,13 +13,16 @@
       <ul id="onlineUsers"></ul>
     </div>
 
-  <script src="http://cdn.peerjs.com/0.3/peer.min.js"></script>
-  <script src="http://static:8089/peerJS/chatController.js"></script>
-  <script src="http://static:8089/peerJS/chatModel.js"></script>
-  <script src="http://static:8089/peerJS/chatClient.js"></script>
-  <script src="http://static:8089/peerJS/chatView.js"></script>
-  <script src="http://static:8089/peerJS/sessionModel.js"></script>
-  <script src="http://static:8089/peerJS/init.js"></script>
+
+  <%= javascript_include_tag 'http://cdn.peerjs.com/0.3/peer.min.js' %>
+  <%= javascript_include_tag 'chat_client/chatController.js' %>
+  <%= javascript_include_tag 'chat_client/chatModel.js' %>
+  <%= javascript_include_tag 'chat_client/chatClient.js' %>
+  <%= javascript_include_tag 'chat_client/chatView.js' %>
+  <%= javascript_include_tag 'chat_client/sessionModel.js' %>
+  <%= javascript_include_tag 'chat_client/init.js' %>
+
+
 
 </div>
 
