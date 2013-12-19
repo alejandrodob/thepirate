@@ -14,8 +14,6 @@
     ChatClient.prototype.connect = function() {
         this._peer = new Peer(this._user_id, { host: HOST, port: PORT });
         this._peer.on('open', this._connectToPeers.bind(this));
-        console.log('connectao')
-        console.log(this._peer.id)
         this._respondToConnectionRequests();
     };
 
@@ -41,7 +39,6 @@
         activePeers.forEach(function(activePeer) {
             var connection = self._peer.connect(activePeer, {serialization: 'json'});
             connection.on('open', self._prepareConnection.bind(self, connection));
-            
             self._storeConnection(connection);
         });
     };

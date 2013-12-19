@@ -14,7 +14,6 @@ function ChatController(model, view, client) {
     //define client callbacks
     this._client.onconnect = function(err, activePeers) {
         if (!err && activePeers.length > 0) {
-            console.log(self._model)
             self.addUsers(activePeers);
         }
     };
@@ -38,7 +37,6 @@ ChatController.prototype = {
         if (_message.body) {
             this._model.addMessage(_message);
             if (own) this._client.send(_message);
-
         }
     },
 

@@ -54,7 +54,7 @@ ChatView.prototype = {
         onlineUsers.html('');
 
         users = this._model.getUsers();
-        console.log(users.length)
+        console.log(users)
         for (user in users) {
             if (users.hasOwnProperty(user)) {
                 onlineUsers.append($('<li>' + users[user] + '</li>'));
