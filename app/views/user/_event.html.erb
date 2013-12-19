@@ -1,0 +1,15 @@
+<div>
+  <%= link_to 'Event: ' << event.name, event_path(event) %>  <br>
+  Created by <%= event.user.username %> <br>
+  Other participants:
+  <ul>
+    <li>
+      <% event.participants.each do |p| %>
+        <% if p == current_user %> 
+          <%= p.username %><br>
+        <% end %>
+      <% end %>
+      </li>
+  </ul>
+    
+</div>

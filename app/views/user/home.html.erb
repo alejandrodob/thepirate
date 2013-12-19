@@ -1,5 +1,10 @@
 <%= render 'session_header' %>
 
-
+<h3>Your scheduled events</h3>
+<%= render partial: "event",
+    collection:     current_user.participating_events,
+    as:             :event,
+    layout:         "li_layout"
+%>
 
 <%= link_to 'Create event', new_event_path %>
